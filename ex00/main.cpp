@@ -3,31 +3,71 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: geonwkim <geonwkim@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: geonwkim <geonwkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 16:08:11 by geonwkim          #+#    #+#             */
-/*   Updated: 2025/03/13 16:08:11 by geonwkim         ###   ########.fr       */
+/*   Created: 2025/03/20 17:38:00 by geonwkim          #+#    #+#             */
+/*   Updated: 2025/03/20 17:48:36 by geonwkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <vector>
 #include <list>
+#include <deque>
+#include <iostream>
 
-int main() {
-  try {
-      std::vector<int> vec = {1, 2, 3, 4, 5};
-      std::cout << "Found in vector: " << *easyfind(vec, 3) << std::endl;
+int main()
+{
+	std::cout << "====================\n";
+    std::cout << "Vector Test\n";
+    std::cout << "====================\n";
+    std::vector<int> v;
 
-      std::list<int> lst = {10, 20, 30, 40, 50};
-      std::cout << "Found in list: " << *easyfind(lst, 30) << std::endl;
+    for (int i = 0; i < 10; i++)
+        v.push_back(i);
+    try
+    {
+        std::cout << "Num: " << *easyfind(v, 5) << std::endl;
+        std::cout << "Num: " << *easyfind(v, 10) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    std::cout << "\n====================\n";
+    std::cout << "List Test\n";
+    std::cout << "====================\n";
+    std::list<int> l;
 
-      std::cout << "Trying to find a missing value..." << std::endl;
-      easyfind(vec, 100); // 存在しない値を検索（例外発生）
+    for (int i = 0; i < 20; i++)
+        l.push_back(i);
+    try
+    {
+        std::cout << "Num: " << *easyfind(l, 0) << std::endl;
+        std::cout << "Num: " << *easyfind(l, 1000) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
 
-  } catch (const std::exception& e) {
-      std::cerr << "Exception: " << e.what() << std::endl;
-  }
+    std::cout << "\n====================\n";
+    std::cout << "Deque Test\n";
+    std::cout << "====================\n";
+    std::deque<int> d;
 
-  return 0;
+    for (int i = 0; i < 700; i++)
+        d.push_back(i);
+    try
+    {
+        std::cout << "Num: " << *easyfind(d, 645) << std::endl;
+        std::cout << "Num: " << *easyfind(d, 750) << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+	return (0);
 }
