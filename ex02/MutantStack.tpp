@@ -6,35 +6,40 @@
 /*   By: geonwkim <geonwkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 22:50:20 by geonwkim          #+#    #+#             */
-/*   Updated: 2025/03/21 22:51:55 by geonwkim         ###   ########.fr       */
+/*   Updated: 2025/03/22 00:17:19 by geonwkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
+// デフォルトコンストラクタ
 template <typename T>
 MutantStack<T>::MutantStack() : std::stack<T>()
 {
 }
 
+// コピーコンストラクタ
 template <typename T>
 MutantStack<T>::MutantStack(const MutantStack& stack) : std::stack<T>(stack)
 {
 }
 
+// 代入演算子オーバーロード
 template <typename T>
 MutantStack<T>& MutantStack<T>::operator=(const MutantStack& stack)
 {
-	if (this == &stack)
-		std::stack<T>::operator=(stack);
-	return (*this);
+    if (this == &stack) // 自己代入チェック
+        std::stack<T>::operator=(stack);
+    return (*this);
 }
 
+// デストラクタ
 template <typename T>
 MutantStack<T>::~MutantStack()
 {
 }
 
+// イテレータを返すメソッド
 template <typename T>
 typename MutantStack<T>::iterator MutantStack<T>::begin()
 {
