@@ -6,7 +6,7 @@
 /*   By: geonwkim <geonwkim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 18:01:11 by geonwkim          #+#    #+#             */
-/*   Updated: 2025/03/20 18:22:54 by geonwkim         ###   ########.fr       */
+/*   Updated: 2025/03/21 23:59:44 by geonwkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 class Span
 {
 private:
-	unsigned int max_size;       // 最大サイズ
-    std::vector<int> numbers;    // 数値を格納するコンテナ
+	unsigned int _max_size;       // 最大サイズ
+    std::vector<int> _v;    // 数値を格納するコンテナ
 
 public:
 	Span(unsigned int n);
